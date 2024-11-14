@@ -6,9 +6,7 @@ require('express-async-errors');
 require('./startup/logging')(app);
 require('./startup/routes')(app)
 
-sequelize.sync().then(async() => {
-    console.log('Database synced!');
-});
+sequelize.sync();
 
 const port = process.env.PORT || 3000;
-app.listen(port, () => logger.info(`Listening on port ${port}...`));
+app.listen(port);

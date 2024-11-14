@@ -1,7 +1,7 @@
 module.exports = {
     apps : [
         {
-          name: "graph-election-viz",
+          name: "graph-election-viz-api",
           script: "./app.js",
           watch: true,
           env: {
