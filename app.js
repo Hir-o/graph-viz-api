@@ -6,7 +6,7 @@ require('express-async-errors');
 require('./startup/logging')(app);
 require('./startup/routes')(app)
 
-sequelize.sync({ force: true }).then(async() => {
+sequelize.sync().then(async() => {
     console.log('Database synced!');
 });
 
