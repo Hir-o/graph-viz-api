@@ -1,18 +1,8 @@
-const mysql = require('mysql2');
+const { Sequelize } = require('sequelize');
 
-const pool = mysql.createPool({
+const sequelize = new Sequelize('graph_election_db', process.env.DB_USER, process.env.DB_PASSWORD, {
     host: 'localhost',
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: 'graph_election_db',
-    waitForConnections: true,
-    connectionLimit: 10,
-    maxIdle: 10,
-    idleTimeout: 60000,
-    enableKeepAlive: true,
-    keepAliveInitialDelay: 0,
+    dialect: 'mysql',
 });
 
-const promisePool = pool.promise();
-
-module.exports = promisePool;
+module.exports = sequelize;
