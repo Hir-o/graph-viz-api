@@ -15,7 +15,7 @@ const Type = sequelize.define('Type', {
       description: {
         type: DataTypes.STRING,
         allowNull: true,
-      }
+      },
 }, {
     sequelize,
     tableName: 'Type',

@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Graph = require('../models/graph');
 const Type = require('../models/type');
+const databaseService = require('../services/databaseService');
 
 router.get('/', async(req, res) => {
     const graphs = await Graph.findAll();
@@ -30,6 +31,7 @@ router.put('/:id', async(req, res) => {
     if (!type) return res.status(400).send(`Invalid TypeId. Could not find any type with id:${req.body.TypeId}`);
 
     const result = await graph.update(req.body);
+    databaseService.pollGraphChanges(req.params.id);
     res.send(result);
 });
 
