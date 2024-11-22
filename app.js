@@ -1,7 +1,6 @@
 const express = require('express');
 const WebSocket = require('ws');
 const app = express();
-const logger = require('./middleware/logger');
 const sequelize = require('./startup/db');
 const websocketService = require('./services/websocketService');
 require('express-async-errors');

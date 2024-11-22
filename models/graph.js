@@ -11,8 +11,9 @@ const Graph = sequelize.define('Graph', {
         type: DataTypes.JSON,  // Store the data as a JSON object
         allowNull: false
       },
-      updatedAt:{
-        type: DataTypes.DATE,
+      isEditable:{
+        type: DataTypes.BOOLEAN,
+        defaultValue: true
       }
 }, {
     sequelize,
