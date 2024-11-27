@@ -1,5 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../startup/db');
+const ElectionResult = require('./electionResult');
 
 const Party = sequelize.define('Party', {
     id: {
@@ -21,5 +22,8 @@ const Party = sequelize.define('Party', {
     sequelize,
     tableName: 'Party'
 });
+
+Party.hasOne(ElectionResult);
+ElectionResult.belongsTo(Party);
 
 module.exports = Party;

@@ -1,30 +1,25 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../startup/db');
 
-const Graph = sequelize.define('Graph', {
+const ElectionResult = sequelize.define('ElectionResult', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
-      },
-    description: {
-      type: DataTypes.STRING,
     },
-    data: {
+    description: {
+        type: DataTypes.STRING
+    },
+    results: {
         type: DataTypes.JSON,  // Store the data as a JSON object
         allowNull: false
       },
-    isEditable:{
-        type: DataTypes.BOOLEAN,
-        defaultValue: true
-      },
-    isHistorical:{
-      type: DataTypes.BOOLEAN,
-      defaultValue: false
-    }
+      customResult: {
+        type: DataTypes.JSON
+      }
 }, {
     sequelize,
-    tableName: 'Graph'
+    tableName: 'Election_Result'
 });
 
-module.exports = Graph;
+module.exports = ElectionResult;

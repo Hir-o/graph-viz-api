@@ -7,7 +7,7 @@ require('express-async-errors');
 require('./startup/logging')(app);
 require('./startup/routes')(app)
 
-sequelize.sync();
+sequelize.sync({ alter: true});
 
 const wss = new WebSocket.Server({ port: 8081 });
 
